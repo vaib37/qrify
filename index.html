@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="QRify is a fast and customizable QR code generator."
+    >
+
+    <meta
+        name="theme-color"
+        content="#070809"
+    >
+
+    <meta
+        name="mobile-web-app-capable"
+        content="yes"
+    >
+
+    <meta
+        name="apple-mobile-web-app-capable"
+        content="yes"
+    >
+
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
+    >
+
+    <meta
+        name="apple-mobile-web-app-title"
+        content="QRify"
+    >
+
+
+    <!-- =====================================
+         PWA MANIFEST
+    ====================================== -->
+
+    <link
+        rel="manifest"
+        href="./manifest.json"
+    >
+
+
+    <!-- =====================================
+         STYLES
+    ====================================== -->
+
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
+
+
+    <title>
+        QRify
+    </title>
+
+</head>
+
+
+<body>
+
+    <main class="app">
+
+
+        <!-- =====================================
+             HEADER
+        ====================================== -->
+
+        <header class="header">
+
+            <a
+                href="./"
+                class="logo"
+                aria-label="QRify home"
+            >
+
+                <div
+                    class="logo-mark"
+                    aria-hidden="true"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <span class="logo-text">
+                    QRify
+                </span>
+
+            </a>
+
+
+            <div
+                class="status"
+                aria-live="polite"
+            >
+
+                <span
+                    class="status-dot"
+                    aria-hidden="true"
+                ></span>
+
+
+                <span>
+                    Ready
+                </span>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================
+             GENERATOR CARD
+        ====================================== -->
+
+        <section class="generator-card">
+
+
+            <!-- =================================
+                 HERO
+            ================================== -->
+
+            <div class="hero">
+
+                <div class="eyebrow">
+
+                    <span aria-hidden="true">
+                        ✦
+                    </span>
+
+                    QR CODE GENERATOR
+
+                </div>
+
+
+                <h1>
+
+                    Turn anything into
+
+                    <span>
+                        a QR code.
+                    </span>
+
+                </h1>
+
+
+                <p>
+
+                    Generate a QR code instantly
+                    from any text or URL.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================
+                 INPUT
+            ================================== -->
+
+            <div class="input-section">
+
+                <label for="text-input">
+                    Enter your content
+                </label>
+
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="text"
+                        id="text-input"
+                        placeholder="https://example.com"
+                        autocomplete="off"
+                        spellcheck="false"
+                        aria-label="Text or URL"
+                    >
+
+
+                    <button
+                        type="button"
+                        id="clear-btn"
+                        class="clear-btn"
+                        aria-label="Clear input"
+                    >
+
+                        ×
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 CUSTOMIZATION
+            ================================== -->
+
+            <details class="customization">
+
+                <summary>
+
+                    <span class="customization-title">
+                        Customize QR
+                    </span>
+
+
+                    <span
+                        class="customization-arrow"
+                        aria-hidden="true"
+                    >
+                        +
+                    </span>
+
+                </summary>
+
+
+                <div class="customization-content">
+
+
+                    <!-- =========================
+                         SIZE
+                    ========================== -->
+
+                    <div class="setting">
+
+                        <div class="setting-header">
+
+                            <label for="qr-size">
+                                Size
+                            </label>
+
+
+                            <span id="size-value">
+                                210px
+                            </span>
+
+                        </div>
+
+
+                        <input
+                            type="range"
+                            id="qr-size"
+                            min="150"
+                            max="400"
+                            value="210"
+                            step="10"
+                            aria-label="QR code size"
+                        >
+
+                    </div>
+
+
+
+                    <!-- =========================
+                         QR COLOR
+                    ========================== -->
+
+                    <div class="setting">
+
+                        <div class="setting-header">
+
+                            <label for="qr-color">
+                                QR Color
+                            </label>
+
+
+                            <span id="qr-color-value">
+                                #000000
+                            </span>
+
+                        </div>
+
+
+                        <div class="color-control">
+
+                            <input
+                                type="color"
+                                id="qr-color"
+                                value="#000000"
+                                aria-label="QR code color"
+                            >
+
+
+                            <span>
+                                Choose color
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =========================
+                         BACKGROUND
+                    ========================== -->
+
+                    <div class="setting">
+
+                        <div class="setting-header">
+
+                            <label for="qr-background">
+                                Background
+                            </label>
+
+
+                            <span id="qr-background-value">
+                                #FFFFFF
+                            </span>
+
+                        </div>
+
+
+                        <div class="color-control">
+
+                            <input
+                                type="color"
+                                id="qr-background"
+                                value="#ffffff"
+                                aria-label="QR code background color"
+                            >
+
+
+                            <span>
+                                Choose color
+                            </span>
+
+                        </div>
+
+
+                        <!-- Contrast feedback -->
+
+                        <div
+                            class="contrast-status"
+                            id="contrast-status"
+                            aria-live="polite"
+                        >
+
+                            <span
+                                class="contrast-indicator"
+                                id="contrast-indicator"
+                                aria-hidden="true"
+                            ></span>
+
+
+                            <span id="contrast-message">
+                                Checking contrast...
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =========================
+                         ERROR CORRECTION
+                    ========================== -->
+
+                    <div class="setting">
+
+                        <div class="setting-header">
+
+                            <label for="error-correction">
+                                Error correction
+                            </label>
+
+                        </div>
+
+
+                        <select
+                            id="error-correction"
+                            aria-label="QR error correction level"
+                        >
+
+                            <option value="L">
+                                Low — 7%
+                            </option>
+
+
+                            <option
+                                value="M"
+                                selected
+                            >
+                                Medium — 15%
+                            </option>
+
+
+                            <option value="Q">
+                                Quartile — 25%
+                            </option>
+
+
+                            <option value="H">
+                                High — 30%
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+            </details>
+
+
+
+            <!-- =================================
+                 GENERATE BUTTON
+            ================================== -->
+
+            <button
+                type="button"
+                id="generate-btn"
+                class="generate-btn"
+            >
+
+                <span>
+                    Generate QR
+                </span>
+
+
+                <span
+                    class="button-arrow"
+                    aria-hidden="true"
+                >
+                    →
+                </span>
+
+            </button>
+
+
+
+            <!-- =================================
+                 RESULT
+            ================================== -->
+
+            <section
+                class="result-section"
+                aria-label="QR code result"
+            >
+
+                <!-- Empty state -->
+
+                <div
+                    class="empty-state"
+                    id="empty-state"
+                >
+
+                    <div
+                        class="empty-icon"
+                        aria-hidden="true"
+                    >
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                    <h2>
+                        Your QR code will appear here
+                    </h2>
+
+
+                    <p>
+                        Enter something above and
+                        hit generate.
+                    </p>
+
+                </div>
+
+
+                <!-- Generated QR -->
+
+                <div
+                    id="qr-code"
+                    class="qr-code"
+                ></div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 ACTION BUTTONS
+            ================================== -->
+
+            <div
+                class="actions"
+                id="actions"
+            >
+
+                <button
+                    type="button"
+                    id="download-btn"
+                    class="secondary-btn"
+                >
+
+                    <span aria-hidden="true">
+                        ↓
+                    </span>
+
+                    Download
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="copy-btn"
+                    class="secondary-btn"
+                >
+
+                    <span aria-hidden="true">
+                        ⧉
+                    </span>
+
+                    Copy
+
+                </button>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer class="footer">
+
+            <span>
+                Made with HTML, CSS & JavaScript
+            </span>
+
+
+            <span
+                class="footer-dot"
+                aria-hidden="true"
+            >
+                •
+            </span>
+
+
+            <span>
+                Nothing is stored
+            </span>
+
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- =====================================
+         LOCAL QR CODE LIBRARY
+    ====================================== -->
+
+    <script src="./libs/qrcode.min.js"></script>
+
+
+    <!-- =====================================
+         APPLICATION JAVASCRIPT
+    ====================================== -->
+
+    <script src="./script.js"></script>
+
+
+    <!-- =====================================
+         SERVICE WORKER REGISTRATION
+    ====================================== -->
+
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener(
+                "load",
+                () => {
+
+                    navigator.serviceWorker
+                        .register("./sw.js")
+                        .then(() => {
+
+                            console.log(
+                                "QRify service worker registered."
+                            );
+
+                        })
+                        .catch((error) => {
+
+                            console.error(
+                                "Service worker registration failed:",
+                                error
+                            );
+
+                        });
+
+                }
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>
